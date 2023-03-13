@@ -5,17 +5,16 @@ const cors = require('cors');
 const logger = require('morgan');
 require('dotenv').config();
 
-//Controllers
-const projectController = require('./controllers/projectControllers.js');
-
 
 // Middleware
 app.use(express.json());
 app.use(cors());
 app.use(logger('dev'));
 
+
 // Routes
-app.use(projectController);
+const projectController = require('./controllers/projectControllers.js');
+app.use('/days', projectController);
 
 // MongoDB
 mongoose.connect(process.env.MONGODB);

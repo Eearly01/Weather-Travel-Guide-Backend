@@ -6,28 +6,28 @@ const mongoose = require('mongoose')
 const DayModel = require('../models/dayModel.js')
 
 // Index
-router.get('/days', async (req, res) => {
-	const allDays = await DayModel.find({});
-	res.json(allDays);
+router.get('/', async (req, res) => {
+	const all = await DayModel.find({});
+	res.json(all);
 });
 
 // Create
 
-router.post('/days', async (req, res) => {
+router.post('/', async (req, res) => {
 	const createdDay = await DayModel.create(req.body);
 	res.json(createdDay);
 });
 
 // DELETE - DELETE ONE
 
-router.delete('/days/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
 	const deletedDay = await DayModel.findByIdAndRemove(req.params.id);
 	res.json(deletedDay);
 });
 
 // UPDATE - UPDATE ONE
 
-router.put('/days/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
 	const updatedDay = await DayModel.findByIdAndUpdate(req.params.id, req.body, {
 		new: true,
 	});
