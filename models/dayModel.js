@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const daySchema = new mongoose.Schema({
-	temp: { type: Number, required: true },
+	city: String,
+	temperature: { type: Number, required: true },
 	windSpeed: { type: Number, required: true },
 	windDirection: String,
 	probabilityOfPrecipitation: { value: {type: Number, default: 0} },
