@@ -6,7 +6,7 @@ const daySchema = new mongoose.Schema({
 	windSpeed: { type: String, required: true },
 	windDirection: String,
 	probabilityOfPrecipitation: { value: {type: Number, default: 0} },
-	detailedForcast: String,
+	detailedForecast: String,
 });
 
 const dayModel = mongoose.model('day', daySchema);
