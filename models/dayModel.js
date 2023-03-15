@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const daySchema = new mongoose.Schema({
+	number: Number,
 	city: String,
 	temp: { type: Number, required: true },
 	windSpeed: { type: String, required: true },
