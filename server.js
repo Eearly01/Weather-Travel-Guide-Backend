@@ -4,7 +4,7 @@ const app = express();
 const cors = require('cors');
 const logger = require('morgan');
 require('dotenv').config();
-
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
@@ -22,6 +22,6 @@ mongoose.connection.once('open', () => {
 	console.log('connected to mongoDB');
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
 	console.log('listening...');
 });
