@@ -6,19 +6,11 @@ const mongoose = require('mongoose')
 const DayModel = require('../models/dayModel.js')
 
 // Index
-router.get('/', (req, res) => {
-	DayModel.find()
-		.sort({ number: 1 })
-		.exec((err, weatherData) => {
-			if (err) {
-				console.log(err);
-				res.status(500).json({ error: 'Internal server error' });
-			} else {
-				res.status(200).json(weatherData);
-			}
-		});
+router.get('/', async (req, res) => {
+	const all = await DayModel.find({});
+	all.sort((a, b) => a.number - b.number);
+	res.json(all);
 });
-
 
 // Create
 
