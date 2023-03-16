@@ -8,7 +8,6 @@ const DayModel = require('../models/dayModel.js')
 // Index
 router.get('/', async (req, res) => {
 	const all = await DayModel.find({});
-	all.sort((a, b) => a.number - b.number);
 	res.json(all);
 });
 
